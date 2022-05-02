@@ -8,7 +8,7 @@
 import SwiftUI
 
 //Array of task
-struct Task: Identifiable{
+struct TaskDetail: Identifiable{
     var id = UUID().uuidString
     var title: String
     var time: Date = Date()
@@ -16,7 +16,7 @@ struct Task: Identifiable{
 //Total task meta view
 struct TaskMetaData: Identifiable{
     var id = UUID().uuidString
-    var task: [Task]
+    var task: [TaskDetail]
     var taskDate: Date
 }
 
@@ -29,7 +29,7 @@ func getSampleDate(offset: Int)->Date{
 
 var tasks: [TaskMetaData] = [
     TaskMetaData(task: [
-    Task(title: "Learn Swift"),
-    Task(title: "Learn Java")
+    TaskDetail(title: "Learn Swift"),
+    TaskDetail(title: "Learn Java")
     ],taskDate: getSampleDate(offset: 0))
 ]

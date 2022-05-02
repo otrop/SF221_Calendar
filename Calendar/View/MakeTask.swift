@@ -8,21 +8,51 @@
 import SwiftUI
 
 struct MakeTask: View {
-    @State private var title: String = ""
+    @State private var taskTitle: String = ""
+    @State private var description: String = ""
+    @State private var taskDate = Date()
+    
     var body: some View {
         VStack {
             Text("Add your new task")
-                .font(.title3).bold()
+                .font(.title2).bold()
                 .frame(maxWidth: .infinity, alignment: .leading)
+            Form{
             TextField(
                     "Title",
-                    text: $title
-                )
+                    text: $taskTitle
+            )
+            .padding(10.0)
+            .background(
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    .stroke(Color.gray, lineWidth: 1))
                 .disableAutocorrection(true)
+            
+            TextField(
+                    "Description",
+                    text: $description
+                )
+            .padding(30)
+            .background(
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    .stroke(Color.gray, lineWidth: 1))
+                .disableAutocorrection(true)
+                DatePicker("Date", selection: $taskDate)
             }
+            .cornerRadius(10)
+            Button {
+                let newTask = TaskDetail(title: taskTitle ,time: taskDate)
+                
+            } label: {Text("Save").font(.headline).bold()}
+            .foregroundColor(.white)
+            .padding(.all, 10.0)
+            .background(
+                Color.blue
+                    .opacity(1)
+                    .cornerRadius(10))
+        }
         .padding(.vertical,10)
         .padding(.horizontal)
-        .textFieldStyle(.roundedBorder)
         .frame(maxWidth: .infinity)
         }
 }
