@@ -41,7 +41,7 @@ struct MakeTask: View {
             }
             .cornerRadius(10)
             Button {
-                let newTask = TaskDetail(title: taskTitle ,time: taskDate)
+                var newTask = TaskDetail(title: taskTitle ,time: taskDate)
                 
             } label: {Text("Save").font(.headline).bold()}
             .foregroundColor(.white)
