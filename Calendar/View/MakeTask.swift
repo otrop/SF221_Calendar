@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import EventKit
+import EventKitUI
 
 struct MakeTask: View {
     @State private var taskTitle: String = ""
@@ -40,10 +42,10 @@ struct MakeTask: View {
                 DatePicker("Date", selection: $taskDate)
             }
             .cornerRadius(10)
-            Button {
-                var newTask = TaskDetail(title: taskTitle ,time: taskDate)
+            Button{
+              var newTask =  TaskDetail(title: taskTitle ,time: taskDate)
                 
-            } label: {Text("Save").font(.headline).bold()}
+                } label: {Text("Save").font(.headline).bold()}
             .foregroundColor(.white)
             .padding(.all, 10.0)
             .background(
