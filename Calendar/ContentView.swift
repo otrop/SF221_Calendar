@@ -22,7 +22,7 @@ struct ContentView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
         .sheet(isPresented: $showAddTask){
                 MakeTask()
-        }.navigationTitle(Text("Hello"))
+        }
     }
 }
 
